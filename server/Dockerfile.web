@@ -13,5 +13,3 @@ RUN useradd -m spare_user
 USER spare_user
 
 COPY . /app
-
-CMD uwsgi uwsgi.ini
