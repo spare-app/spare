@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { Switch, Redirect, Route } from "react-router-dom"
+import { Switch, Redirect, Route, Link } from "react-router-dom"
 import Request from "./Request"
 import Donate from "./Donate"
 import Header from './Header';
-import { Grid  } from "react-bootstrap"
+import { Grid, Row, Col } from "react-bootstrap"
+
 
 class App extends Component {
   render() {
@@ -38,6 +39,15 @@ class App extends Component {
             </Switch>
           </Grid>
         </div>
+        <footer className="footer">
+          <Grid>
+            <Row>
+              <Col className="text-center" sm={2} smOffset={5}>
+                <Link className="text-footer" to="/about">ABOUT</Link>
+              </Col>
+            </Row>
+          </Grid>
+        </footer>
       </Grid>
     )
   }
