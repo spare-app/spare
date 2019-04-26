@@ -4,7 +4,7 @@ provider "aws" {
   version    = "~> 2.7"
 }
 
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "default" {
   bucket = "spare-terraform"
 
   tags {
@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-resource "aws_dynamodb_table" "table" {
+resource "aws_dynamodb_table" "default" {
   name           = "spare-terraform"
   read_capacity  = 5
   write_capacity = 5
