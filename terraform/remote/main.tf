@@ -3,7 +3,7 @@ provider "aws" {
   profile    = "spare-terraform"  # Must be configured locally
 }
 
-resource "aws_s3_bucket" "terraform" {
+resource "aws_s3_bucket" "bucket" {
   bucket = "spare-terraform"
 
   tags {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "terraform" {
   }
 }
 
-resource "aws_dynamodb_table" "terraform" {
+resource "aws_dynamodb_table" "table" {
   name           = "spare-terraform"
   read_capacity  = 5
   write_capacity = 5

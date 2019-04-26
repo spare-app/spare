@@ -20,3 +20,9 @@ apply:
 .PHONY: destroy
 destroy:
 	terraform destroy
+
+
+.PHONY: import
+import:
+	terraform import aws_dynamodb_table.table spare-terraform
+	terraform import aws_s3_bucket.bucket spare-terraform
