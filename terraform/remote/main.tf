@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "terraform" {
   bucket = "spare-terraform"
 
   tags {
-		Name = "Terraform Dev State"
+    Name = "Terraform Dev State"
   }
 
   versioning {
@@ -24,12 +24,13 @@ resource "aws_dynamodb_table" "terraform" {
   attribute {
     name = "LockID"
     type = "S"
- }
+  }
 
-module "state" {
-  source         = "github.com/confluentinc/terraform-state"
-  s3_bucket      = "spare-terraform"
-  s3_bucket_name = "Terraform Remote Storage"
-  dynamodb_table = "spare-terraform"
-  env            = "default"  # Not using environment-specific backends
+  module "state" {
+    source         = "github.com/confluentinc/terraform-state"
+    s3_bucket      = "spare-terraform"
+    s3_bucket_name = "Terraform Remote Storage"
+    dynamodb_table = "spare-terraform"
+    env            = "default"  # Not using environment-specific backends
+  }
 }
