@@ -23,5 +23,5 @@ destroy:
 
 .PHONY: import
 import:
-	terraform import aws_dynamodb_table.table spare-terraform
-	terraform import aws_s3_bucket.bucket spare-terraform
+	terraform import -backup=- aws_dynamodb_table.table spare-terraform
+	terraform import -backup=- aws_s3_bucket.bucket spare-terraform
