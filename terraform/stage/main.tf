@@ -14,5 +14,7 @@ terraform {
 }
 
 resource "heroku_app" "default" {
-
+  name   = "${var.name}-test"
+  region = "us"
+  stack  = "container"
 }
