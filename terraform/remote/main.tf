@@ -1,6 +1,7 @@
 provider "aws" {
   region     = "us-west-2"
   profile    = "spare-terraform"  # Must be configured locally
+  version    = "~> 2.7"
 }
 
 resource "aws_s3_bucket" "bucket" {
