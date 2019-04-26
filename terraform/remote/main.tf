@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "terraform" {
 }
 
 resource "aws_dynamodb_table" "terraform" {
-  name           = "${var.dynamodb_table}"
+  name           = "spare-terraform"
   read_capacity  = 5
   write_capacity = 5
   hash_key       = "LockID"
@@ -25,12 +25,12 @@ resource "aws_dynamodb_table" "terraform" {
     name = "LockID"
     type = "S"
   }
+}
 
-  module "state" {
-    source         = "github.com/confluentinc/terraform-state"
-    s3_bucket      = "spare-terraform"
-    s3_bucket_name = "Terraform Remote Storage"
-    dynamodb_table = "spare-terraform"
-    env            = "default"  # Not using environment-specific backends
-  }
+module "state" {
+  source         = "github.com/confluentinc/terraform-state"
+  s3_bucket      = "spare-terraform"
+  s3_bucket_name = "Terraform Remote Storage"
+  dynamodb_table = "spare-terraform"
+  env            = "default"  # Not using environment-specific backends
 }
