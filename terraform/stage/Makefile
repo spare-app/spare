@@ -11,12 +11,12 @@ setup:
 
 .PHONY: plan
 plan:
-	terraform plan -var-file=secrets.tfvars
+	terraform plan
 
 .PHONY: apply
 apply:
-	terraform apply -var-file=secrets.tfvars
+	terraform apply
 
 .PHONY: destroy
 destroy:
-	terraform destroy -var-file=secrets.tfvars
+	terraform destroy
