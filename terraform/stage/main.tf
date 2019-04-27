@@ -18,3 +18,13 @@ resource "heroku_app" "default" {
   region = "us"
   stack  = "container"
 }
+
+resource "heroku_addon" "postgresql" {
+  app  = "${heroku_app.default.name}"
+  plan = "heroku-postgresql:hobby-dev"
+}
+
+resource "heroku_addon" "papertrail" {
+  app  = "${heroku_app.default.name}"
+  plan = "papertrail:choklad"
+}
